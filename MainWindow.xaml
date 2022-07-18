@@ -1,0 +1,49 @@
+﻿<Window x:Class="Backup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Backup"
+        mc:Ignorable="d"
+        Title="BackUp Utility" Height="350" Width="650" ResizeMode="NoResize" >
+    <Grid x:Name="FullBackUp" Margin="0" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/> 
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LblFolder" Content="Folder to be Archived:" HorizontalAlignment="Right" Margin="0,10,5,0" VerticalAlignment="Top" Height="26" Width="126" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="LblArchiveFolder" Content="Location of Archive:" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="19,10,5,27" Grid.Row="1" Grid.Column="0"/>
+            <TextBox x:Name="TxtFolder" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="235" Height="18" Grid.Row="0" Grid.Column="1"/>
+            <TextBox x:Name="TxtArchiveFolder" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"  Width="235" Grid.Row ="1" Grid.Column="1"/>
+            <Button x:Name="BtnFolder" Content=".." HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Click="BtnFolder_Click" Grid.Row="0" Grid.Column="2" Margin="5,10,0,0"/>
+            <Button x:Name="BtnArchive" Content=".." Click="BtnArchive_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="25" Grid.Row="1" Grid.Column="2" Margin="5,10,0,0"/>
+            <Label x:Name="LblArchiveFile" Content="Archive Filename:" Height="26" Width="103" Visibility="Collapsed" Margin="112,10,5,22" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <TextBox x:Name="TxtArchiveFile" TextWrapping="Wrap" Text="" RenderTransformOrigin="0.076,-0.225" Height="18" Visibility="Collapsed" Margin="5,10,0,0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="235" VerticalAlignment="Top"/>
+            <Button x:Name="BtnArchiveFile" Content=".." Width="24" Height="26" Click="BtnArchiveFile_Click" RenderTransformOrigin="0.335,2.712" Visibility="Collapsed" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="100 10" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <RadioButton x:Name="RdBtnBackup" Content="FullBackup" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 5" GroupName="PickOption" IsChecked="True" FontSize="14" FontWeight="Bold" Height="22" Width="90" Checked="RdBtnBackup_Checked"/>
+            <RadioButton x:Name="RdBtnUpdate" Content="Update Archive" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 5" GroupName="PickOption" FontSize="14" FontWeight="Bold" Height="22" Width="130" Checked="RdBtnUpdate_Checked"/>
+        </StackPanel>
+        <Button x:Name="BtnBackup" Content="Start" Margin="10" VerticalAlignment="Center" Height="50" Width="200" Background="#FF0587EC" Click="BtnBackup_Click" Grid.Row="4"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Width="500" Visibility="Visible" Grid.Row="3"/>
+        <TextBox x:Name="TxTBoxTotalFiles" HorizontalAlignment="Left" Margin="125,0,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="50"/>
+        <Label x:Name="LblTotalFiles" Content="Total Files Processed:" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
